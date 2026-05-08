@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets ──────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body { margin: 0; background: theme('colors.navy.900'); color: theme('colors.slate.100'); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+}
+
+/* ── Bracket connector lines (hard to do in pure Tailwind) ── */
+@layer components {
+  /* Horizontal line extending right from each match slot */
+  .bracket-slot::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 16px;
+    height: 2px;
+    background: theme('colors.navy.border');
+  }
+
+  /* Vertical line connecting the two slots in a pair */
+  .bracket-pair-wrap::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    width: 2px;
+    height: 50%;
+    background: theme('colors.navy.border');
+  }
+
+  /* Horizontal line coming in from the left for next-round matches */
+  .bracket-slot-incoming::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    width: 16px;
+    height: 2px;
+    background: theme('colors.navy.border');
+  }
+}

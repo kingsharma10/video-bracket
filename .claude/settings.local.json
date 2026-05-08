@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" && npm install 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" && npx vite build 2>&1)",
+      "Bash(command:*)",
+      "Bash(tail:*)"
+    ]
+  }
+}
